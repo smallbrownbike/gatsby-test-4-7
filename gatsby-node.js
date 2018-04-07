@@ -29,22 +29,22 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       ).then(result => {
         if (result.errors) {
           reject(result.errors)
-        }
-        console.log(result)
-        // Create pages
-        result.data.allContentfulPage.edges.forEach(edge => {
-          createPage({
-            path: `${edge.node.slug}`, // required
-            component: pageTemplate,
-            context: edge.node,
+        } else {
+          // Create pages
+          result.data.allContentfulPage.edges.forEach(edge => {
+            createPage({
+              path: `${edge.node.slug}`, // required
+              component: pageTemplate,
+              context: edge.node,
+            })
           })
-        })
-        //Create sitemap
-        createPage({
-          path: '/sitemap', // required
-          component: sitemapTemplate,
-          context: { pages: result.data.allContentfulPage.edges },
-        })
+          //Create sitemap
+          createPage({
+            path: '/sitemap', // required
+            component: sitemapTemplate,
+            context: { pages: result.data.allContentfulPage.edges },
+          })
+        }
 
         return
       })
