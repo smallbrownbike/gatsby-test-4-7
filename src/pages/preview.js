@@ -11,7 +11,7 @@ export default class Preview extends React.Component {
 
   componentDidMount() {
     fetch(
-      `http://preview.contentful.com/spaces/${
+      `https://preview.contentful.com/spaces/${
         process.env.CONTENTFUL_SPACE_ID
       }/entries/${this.state.entryId}?access_token=${
         process.env.CONTENTFUL_PREVIEW_TOKEN
