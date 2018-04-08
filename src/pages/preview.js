@@ -1,11 +1,11 @@
 import React from 'react'
 import Page from '../templates/page'
-import queryString from 'query-string'
+import queryString from 'querystring'
 
 export default class Preview extends React.Component {
   constructor(props) {
     super(props)
-    const entryId = queryString.parse(props.location.search).entryId
+    const entryId = queryString.parse(props.location.search)['?entryId']
     this.state = { preview: null, entryId }
   }
 
