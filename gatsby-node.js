@@ -17,7 +17,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 node {
                   id
                   slug
-                  title
                   desc {
                     desc
                   }
