@@ -5,7 +5,7 @@ const IndexPage = props => {
   const md = props.pathContext.desc.desc
   return (
     <div>
-      <ReactMarkdown source={md} />
+      <ReactMarkdown escapeHtml={false} source={md} />
     </div>
   )
 }
